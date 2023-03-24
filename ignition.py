@@ -14,6 +14,7 @@ if __name__ == "__main__":
 	started = False
 	tz = pytz.timezone("Europe/Dublin")
 	p1 = None
+	print("Ignition ON")
 	while True:
 		curr_time = dt.datetime.now(tz)
 		if curr_time.hour ==13  and curr_time.minute == 30:
