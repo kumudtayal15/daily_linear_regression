@@ -60,6 +60,10 @@ class pair:
 		self.direction = ""
 		self.data_x = []
 		self.data_y = []
+		self.ub = float(tickers[8])
+		self.lb = float(tickers[9]) 
+		self.s_ub = float(tickers[10])
+		self.s_lb = float(tickers[11])
 		self.tz = pytz.timezone('Europe/Dublin')
 
 	def on_new_bar_y(self,bars: BarDataList, has_new_bar: bool):
@@ -192,10 +196,10 @@ class pair:
 			self.positions[self.ib_tickers[1]] = pos.position
 
 	def strategy(self):
-		ub = 2.0
-		lb = -2.0
-		s_ub = 1.0
-		s_lb = -1.0
+		ub = self.ub
+		lb = self.lb
+		s_ub = self.s_ub
+		s_lb = self.s_lb
 		if self.flag_y and self.flag_x:
 			self.flag_y = False
 			self.flag_x = False
